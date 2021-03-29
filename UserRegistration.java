@@ -49,11 +49,24 @@ public class UserRegistration{
         else
             System.out.println("Email is not valid...");
     }
-
+    public void mobileNumber() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Mobile Number: ");
+        String mobileNumber = sc.next();
+        String regex = "^[91]+[\s]+[0-9]{10}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(mobileNumber);
+        boolean result = matcher.matches();
+        if(result == true)
+            System.out.println("Mobile Number is Valid...");
+        else
+            System.out.println("Mobile Number is not valid...");
+    }
     public static void main(String[] args) {
         UserRegistration regex = new UserRegistration();
         regex.firstName();
         regex.lastName();
         regex.email();
+        regex.mobileNumber();
     }
 }
