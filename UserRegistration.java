@@ -66,7 +66,8 @@ public class UserRegistration{
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Password with minimum 8 Character: ");
         String password = sc.next();
-        String regex = "^(?=.*?[A-Z]).{8,}$"; //atleast one upper case letter
+       // String regex = "^(?=.*?[A-Z]).{8,}$"; //atleast one upper case letter
+        String regex = "^(?=.*?[A-Z])(?=.*?[0-9]).{8,}$"; // numeric character
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         boolean result = matcher.matches();
@@ -78,10 +79,10 @@ public class UserRegistration{
 
     public static void main(String[] args) {
         UserRegistration regex = new UserRegistration();
-       /* regex.firstName();
+        regex.firstName();
         regex.lastName();
         regex.email();
-        regex.mobileNumber(); */
+        regex.mobileNumber(); 
         regex.passwordEightCharacter();
     }
 }
