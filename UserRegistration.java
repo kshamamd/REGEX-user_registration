@@ -62,11 +62,26 @@ public class UserRegistration{
         else
             System.out.println("Mobile Number is not valid...");
     }
+    public void passwordEightCharacter() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Password with minimum 8 Character: ");
+        String password = sc.next();
+        String regex = "^[a-zA-Z0-9]{8,}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        boolean result = matcher.matches();
+        if(result == true)
+            System.out.println("Password is Valid...");
+        else
+            System.out.println("Password is not valid...");
+    }
+
     public static void main(String[] args) {
         UserRegistration regex = new UserRegistration();
         regex.firstName();
         regex.lastName();
         regex.email();
         regex.mobileNumber();
+        regex.passwordEightCharacter();
     }
 }
